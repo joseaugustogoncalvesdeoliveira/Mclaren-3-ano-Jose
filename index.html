@@ -7,6 +7,23 @@
     <title>mclaren</title>
 </head>
 <body>
+    <button onclick="changeFontSize('aumentar')">Aumentar</button>
+    <button onclick="changeFontSize('reduzir')">Reduzir</button>
+    
+    <script>
+    function changeFontSize(action){
+    const elements = ['h1', 'p'];
+    elements.map(element=>{
+    
+    const selector = document.querySelector(element);
+    let value = getComputedStyle(selector).getPropertyValue('font-size');
+    value = value.replace('px', '');
+    value = action === 'aumentar' ? parseInt(value) + 1 : parseInt(value) - 1;
+    selector.style.fontSize = `${value}px`;
+    })
+    }
+    </script>
+
     <main>
 <h1>mclaren senna </h1>
 <img id="ima1" src="senna.jpg">
